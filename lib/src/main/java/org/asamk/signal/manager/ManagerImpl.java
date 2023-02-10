@@ -314,13 +314,6 @@ class ManagerImpl implements Manager {
         var identityKey = account.getAciIdentityKeyPair().getPrivateKey();
         return devices.stream().map(d -> {
             String deviceName = d.getName();
-            if (deviceName != null) {
-                try {
-                    deviceName = DeviceNameUtil.decryptDeviceName(deviceName, identityKey);
-                } catch (IOException e) {
-                    logger.debug("Failed to decrypt device name, maybe plain text?", e);
-                }
-            }
             return new Device(d.getId(),
                     deviceName,
                     d.getCreated(),

@@ -157,7 +157,7 @@ public class AccountHelper {
 
     public void setDeviceName(String deviceName) {
         final var privateKey = account.getAciIdentityKeyPair().getPrivateKey();
-        final var encryptedDeviceName = DeviceNameUtil.encryptDeviceName(deviceName, privateKey);
+        final var encryptedDeviceName = deviceName;
         account.setEncryptedDeviceName(encryptedDeviceName);
     }
 
